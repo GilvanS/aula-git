@@ -28,3 +28,7 @@ context('Funcionalidade Login', () => {
         cy.get('.woocommerce-error').should('contain', 'Erro: A senha fornecida para o e-mail aluno_ebac@teste.com está incorreta. Perdeu a senha?')
     })
 })
+
+teste01
+
+teste02
