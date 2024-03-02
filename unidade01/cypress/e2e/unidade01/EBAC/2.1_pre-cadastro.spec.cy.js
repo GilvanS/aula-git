@@ -9,13 +9,17 @@ describe('Funcionalidade Pré Cadastro', () => {
         cy.screenshot()
     })
     it('Deve completar o pré cadastro com sucesso', () => {
-        cy.get('#reg_email').type(fakerPT_BR.internet.email())
+        let emailFaker = fakerPT_BR.internet.email()
+        let nomelFaker = fakerPT_BR.person.firstName()
+        let sobrenomeFaker = fakerPT_BR.person.lastName()
+
+        cy.get('#reg_email').type(emailFaker)
         cy.get('#reg_password').type('Testeteste123@')
         cy.get(':nth-child(4) > .button').click()
 
         cy.get('.woocommerce-MyAccount-navigation-link--edit-account > a').click()
-        cy.get('#account_first_name').type(fakerPT_BR.person.firstName())
-        cy.get('#account_last_name').type(fakerPT_BR.person.lastName())
+        cy.get('#account_first_name').type(nomelFaker)
+        cy.get('#account_last_name').type(sobrenomeFaker)
         cy.get('.woocommerce-Button').click()
         cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificada com sucesso.')
     });
